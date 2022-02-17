@@ -1,0 +1,28 @@
+[tool.poetry]
+name = "0_ds-baseproject"
+version = "0.1.0"
+description = "Base python project"
+authors = ["Recode developers"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pandas = "*"
+seaborn = "*"
+scikit-learn = "*"
+jupyterlab = "*"
+jupyter-contrib-nbextensions = "*"
+xlrd = "*"
+mne = "^0.24.1"
+matlab = "^0.1"
+PyEEGLab = "^0.10.0"
+PyOpenGL = "^3.1.5"
+plotly = "^5.5.0"
+chart-studio = "^1.1.0"
+transformers = "^4.16.2"
+moabb = "^0.4.4"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
