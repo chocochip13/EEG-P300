@@ -5,7 +5,7 @@ description = "Base python project"
 authors = ["Recode developers"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = ">=3.7,<3.10"
 pandas = "*"
 seaborn = "*"
 scikit-learn = "*"
@@ -20,6 +20,8 @@ plotly = "^5.5.0"
 chart-studio = "^1.1.0"
 transformers = "^4.16.2"
 moabb = "^0.4.4"
+tensorflow = "^2.8.0"
+protobuf = "^3.19.4"
 
 [tool.poetry.dev-dependencies]
 
