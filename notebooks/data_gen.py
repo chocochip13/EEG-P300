@@ -35,4 +35,4 @@ for i in range(len(jdf)):
     ev.append(ep[i].average(by_event_type=True))
 
 for i in range(len(ep)):
-    ep[i].save('data/epochs/epoch-epo-A0' + str(i) + '.fif')
+    ep[i].save('/workspace/data/EEG/data/epochs/A0' + str(i+1) + '-epo.fif')
