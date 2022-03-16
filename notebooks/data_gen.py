@@ -59,6 +59,7 @@ X8 = ep[7].get_data()
 #Combine epochs and labels
 combined_epochs = np.stack((X8, X7, X6, X5, X4, X3, X2, X1), axis=0)
 combined_labels = np.stack((l1,l2,l3,l4,l5,l6,l7,l8), axis=0)
+combined_labels = combined_labels-1
 
 #Write as arrays
 np.save('/workspace/data/EEG/data/epochs/A-epo.npy', combined_epochs)
