@@ -37,7 +37,7 @@ def add_stim(raw, y):
     raw.add_channels([stim_raw], force_update_info=True)
     return raw
 
-
+#TODO: Remove other information
 def bp_filter(dataset, f_low=0.1, f_high=30, picks='eeg', iir_params= dict(order=8, ftype='butter')):
     channels, X, y, y_stim, trial, classes, classes_stim, gender, age, ALSfrs, onsetALS = data_extract(dataset)
     raw = set_info(X, channels, sfreq=256)
@@ -48,7 +48,7 @@ def bp_filter(dataset, f_low=0.1, f_high=30, picks='eeg', iir_params= dict(order
     # plot_filt = filt_raw.plot(color = 'blue', scalings = 'auto', duration =10 ,start = 8)
     return filt_raw
 
-
+#TODO: Remove events
 def epochs_gen(filt_raw, event_id=dict(NT=1, T=2), tmin=-0.2, tmax=0.8, picks='eeg'):
     # filt_raw = bp_filter(dataset, f_low = 0.1, f_high = 30, picks = 'eeg', iir_params = dict(order=8, ftype='butter')
     events = find_events(filt_raw)
