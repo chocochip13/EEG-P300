@@ -13,6 +13,7 @@ np.random.seed(13)
 filepath = "/workspace/data/EEG/data/BNCI/"
 df = glob.glob(filepath + '*.mat')
 
+#TODO: Make a dict
 df1 = scipy.io.loadmat(df[0])
 df2 = scipy.io.loadmat(df[1])
 df3 = scipy.io.loadmat(df[2])
@@ -26,6 +27,7 @@ jdf = [df1, df2, df3, df4, df5, df6, df7, df8]
 
 del df1, df2, df3, df4, df5, df6, df7, df8, df
 
+#TODO: Make a dict
 filt_raw = []
 ep = []
 ev = []
