@@ -41,6 +41,7 @@ for i in range(len(ep)):
 
 #Label extraction
 l1 = ep[0].events[:,-1]
+l1 = ep[0].events[:,-1]
 l2 = ep[1].events[:,-1]
 l3 = ep[2].events[:,-1]
 l4 = ep[3].events[:,-1]
