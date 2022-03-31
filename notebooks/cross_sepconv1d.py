@@ -4,8 +4,6 @@ from __future__ import division
 from __future__ import print_function
 
 from tensorflow.keras.layers import *
-from tensorflow.keras.models import Model
-
 from tensorflow.keras.callbacks import EarlyStopping
 from sklearn.model_selection import *
 from utils import *
@@ -36,7 +34,6 @@ def evaluate_cross_subject_model(data, labels, modelpath, n_filters = 32):
     aucs = np.zeros(n_sub)
     inf_time = np.zeros(n_sub)
 
-
     data = data.reshape((n_sub * n_ex_sub, n_samples, n_channels))
     labels = labels.reshape((n_sub * n_ex_sub))
     groups = np.array([i for i in range(n_sub) for j in range(n_ex_sub)])
@@ -53,7 +50,7 @@ def evaluate_cross_subject_model(data, labels, modelpath, n_filters = 32):
                                                                    np.unique(groups[t][sv]),
                                                                    np.unique(groups[v])))
 
-         # channel-wise feature standarization
+        # channel-wise feature standarization
         sc = EEGChannelScaler(n_channels = n_channels)
         X_train = sc.fit_transform(X_train)
         X_valid = sc.transform(X_valid)
@@ -73,6 +70,7 @@ def evaluate_cross_subject_model(data, labels, modelpath, n_filters = 32):
                   validation_data = (X_valid, y_valid),
                   callbacks = [es])
         train_time = time.time()-start_train
+        print(train_time)
 
         start_test = time.time()
         proba_test = model.predict(X_test)
@@ -80,7 +78,6 @@ def evaluate_cross_subject_model(data, labels, modelpath, n_filters = 32):
 
         test_size = X_test.shape[0]
         inf_time[k] = test_time/test_size
-
 
         aucs[k] = roc_auc_score(y_test, proba_test)
         print('P{0} -- AUC: {1}'.format(k, aucs[k]))
@@ -91,6 +88,7 @@ def evaluate_cross_subject_model(data, labels, modelpath, n_filters = 32):
 
     np.savetxt(modelpath + '/aucs.npy', aucs)
     np.savetxt(modelpath + '/inf_time.npy', inf_time)
+
 
 cross_modelpath = "/workspace/data/EEG/models/sepconv1d/cross/"
 evaluate_cross_subject_model(tCE, lab, cross_modelpath, n_filters = 32)

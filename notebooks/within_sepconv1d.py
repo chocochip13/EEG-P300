@@ -22,6 +22,7 @@ lab = np.load("/workspace/data/EEG/data/epochs/A-labels.npy")
 
 tCE = np.transpose(CE, (0, 1, 3, 2))  # Reshape as per model requirement
 
+
 def evaluate_subject_models(data, labels, modelpath, subject, n_filters = 16):
     """
     Trains and evaluates P300-CNNT for each subject in the P300 Speller database
@@ -62,6 +63,7 @@ def evaluate_subject_models(data, labels, modelpath, subject, n_filters = 16):
                             validation_data = (X_valid, y_valid),
                             callbacks = [es])
         train_time = time.time()-start_train
+        print(train_time)
 
         start_test = time.time()
         proba_test = model.predict(X_test)
@@ -80,7 +82,6 @@ def evaluate_subject_models(data, labels, modelpath, subject, n_filters = 16):
     np.save(modelpath + '/s' + str(subject) + '_data.npy', X_test)
     np.save(modelpath + '/s' + str(subject) + '_labels.npy', y_test)
     model.save_weights(modelpath + '/s' + str(subject) + '_model.h5')
-
 
 
 within_modelpath = "/workspace/data/EEG/models/sepconv1d/within/"
