@@ -22,6 +22,7 @@ transformers = "^4.16.2"
 moabb = "^0.4.4"
 tensorflow = "^2.8.0"
 protobuf = "^3.19.4"
+keras = "^2.8.0"
 
 [tool.poetry.dev-dependencies]
 
