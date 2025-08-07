@@ -166,6 +166,4 @@ SepConv1D is a simpler model using separable convolutions:
 
 Results are saved in the `data/results` directory, with separate subdirectories for `within_subject` and `cross_subject` evaluations. Visualizations are saved in the `data/results/plots` directory.
 
-### Credits
 
-This project is maintained by [chocochip13](https://github.com/chocochip13).
